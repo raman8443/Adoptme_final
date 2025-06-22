@@ -1,293 +1,158 @@
 /* SECCION GALERIA */
-.fotos  {  
-  width: 100%;
-  max-width: 1100px;
-  margin: auto;
-  margin-top: 60px;
-  margin-bottom: 60px;
-  display: grid;
-  grid-template-columns: repeat(3. 1fr);
-  grid-template-rows: 250px;
-  grid-gap: 20px;
-   
-  
-    background: linear-gradient(#d6d2c4, #FEFEFE);   
-    font-size: 25px;      
-          
+.fotos {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: repeat(3. 1fr);
+    grid-template-rows: 250px;
+    grid-gap: 20px;
+
+
+    background: linear-gradient(#d6d2c4, #FEFEFE);
+    font-size: 25px;
+
     box-shadow: 4px 4px 4px #ccc;
-    border-radius: 15px; width: 50%;
-    
-   
-   
+    border-radius: 15px;
+    width: 50%;
+
 
 }
-
-  
-  
-  
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 /* SECCION RESPONSIVE */
-@media screen and (min-width: 480px){
+@media screen and (min-width: 480px) {
     .img-modal {
         width: 50%;
-        }
-        
-        .galeria .titulo-grupo {
-        font-size: 40px;
-        }
+    }
 
-    .banner { margin-top: -145px;
+    .galeria .titulo-grupo {
+        font-size: 40px;
+    }
+
+    .banner {
+        margin-top: -145px;
         z-index: 1000;
     }
+
     .img-banner {
         height: 700px;
     }
+
     .contenido-banner {
         font-size: 32px;
         top: 55%;
     }
-    
-    
-    
-     .img-modal {
+
+    .img-modal {
         width: 50%;
     }
-        
-        .galeria .titulo-grupo {
+
+    .galeria .titulo-grupo {
         font-size: 40px;
     }
 
 }
-@media screen and (max-width:800px){
+
+@media screen and (max-width:800px) {
     .habilidades .contenido-seccion {
         display: block;
     }
+
     .habilidades .contenido-seccion {
         width: 100%;
         text-align: center;
     }
+
     .habilidades .contenido-seccion {
         justify-content: center;
     }
+
     .sobremi .contenido-seccion {
         display: block;
     }
+
     .sobremi .contenido-seccion {
         width: 80%;
         margin: auto;
         margin-top: 20px;
     }
 }
-@media screen and (min-width: 1024px){
+
+@media screen and (min-width: 1024px) {
     /*responsive banner*/
-    
-    .contenedor  {
-     margin-top: 2px;
-      display: flex;
-      margin-bottom: 5px;
-      margin-left: 20px;
-      color:black;
-            
-    }
-    .contenedor1  {
+
+    .contenedor {
+        margin-top: 2px;
         display: flex;
         margin-bottom: 5px;
         margin-left: 20px;
-        color:black;
-              
-      }
-    .columna  { 
-       
+        color: black;
+
+    }
+
+    .contenedor1 {
+        display: flex;
+        margin-bottom: 5px;
+        margin-left: 20px;
+        color: black;
+
+    }
+
+    .columna {
+
         width: 50%;
-     }
-     .contenido1-seccion {  
+    }
+
+    .contenido1-seccion {
         margin-top: 1px;
         height: 300px;
-      }
-      .habilidades {  
+    }
+
+    .habilidades {
         height: 300x;
     }
-   
-     
-     
-    
-     .especiales-hoy-img{
+
+
+
+
+    .especiales-hoy-img {
         margin-bottom: 10px;
-       
+
         width: 200px;
         height: 200px;
         justify-content: space-between;
         align-items: center;
         text-align: center;
-   
-  
-    
-   }
+
+
+
+    }
 
 }
 
-   
-   
-   
-   
-   
-   
-   
-   
+.resumen .contenido-seccion .info {
+    display: block;
+}
 
-    .resumen .contenido-seccion .info{
-        display: block;
-    }
-    .resumen .contenido-seccion .info .col{
-        width: 90%;
-        margin: auto;
-    }
-    .resumen .contenido-seccion .info .col .titulo{
-        display: block;
-        text-align: center;
-    }
-    .resumen .contenido-seccion .info .col table{
-        margin-top: 10px;
-        margin-bottom: 30px;
-    }
-    .contacto .contenido-seccion .fila{
-        display: block;
-    }
+.resumen .contenido-seccion .info .col {
+    width: 90%;
+    margin: auto;
+}
+
+.resumen .contenido-seccion .info .col .titulo {
+    display: block;
+    text-align: center;
+}
+
+.resumen .contenido-seccion .info .col table {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.contacto .contenido-seccion .fila {
+    display: block;
 }

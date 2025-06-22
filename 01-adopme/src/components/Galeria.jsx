@@ -40,7 +40,7 @@ const Mascotas = [
 const HTMLMascotas = Mascotas.map((mascota) => {
   return (
     <div key={mascota.id} className="fotos">
-      <dir className = "fotosinterno">
+      <dir className="fotosinterno">
         <h2>{mascota.name}</h2>
         <h2>{mascota.size}</h2>
         <img src={mascota.img} alt="" />

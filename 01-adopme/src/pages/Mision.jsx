@@ -1,15 +1,15 @@
-import Header from "../components/Header";
-import "../components/Mision.css"
+import "../components/Mision.css";
 
 const Mision = () => {
   return (
     <>
-      <Header></Header>
-      <img  src="/public/adoptme.png" className="logo" alt=""   />
+      <img src="/public/adoptme.png" className="logo" alt="" />
       <section className="info">
         <div className="CANTIDAD">CANTIDAD DE ADOPCIONES</div>
         <div className="HISTORIA">NUESTRA HISTORIA</div>
-        <div className="CONDICIONES">CONDICIONES DE ENTREGA DE LOS ANIMALES</div>
+        <div className="CONDICIONES">
+          CONDICIONES DE ENTREGA DE LOS ANIMALES
+        </div>
       </section>
     </>
   );

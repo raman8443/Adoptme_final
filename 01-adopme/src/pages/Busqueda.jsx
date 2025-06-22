@@ -1,7 +1,5 @@
 const Busqueda = () => {
-  return (
-    <div>Busqueda</div>
-  )
-}
+  return <div>Busqueda</div>;
+};
 
-export default Busqueda
+export default Busqueda;

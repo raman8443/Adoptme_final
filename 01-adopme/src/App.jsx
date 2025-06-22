@@ -4,23 +4,20 @@ import InicioPages from "./pages/InicioPages";
 import Mision from "./pages/Mision";
 import ComoAdoptar from "./pages/ComoAdoptar";
 import DarAdopcion from "./pages/DarAdopcion";
+import Header from "./components/Header";
 
-
-function App() {  
-
+function App() {
   return (
-
-   <Routes>
-      <Route path="/" element ={<InicioPages />} />
-      <Route path="/Mision" element ={<Mision />} />
-      <Route path="/ComoAdoptar" element ={<ComoAdoptar/>} />
-      <Route path="/DarAdopcion" element ={<DarAdopcion />} />
-      
-   </Routes>
- 
-   
-    
+    <>
+      <Header /> {/* Esto se muestra siempre */}
+      <Routes>
+        <Route path="/" element={<InicioPages />} />
+        <Route path="/Mision" element={<Mision />} />
+        <Route path="/ComoAdoptar" element={<ComoAdoptar />} />
+        <Route path="/DarAdopcion" element={<DarAdopcion />} />
+      </Routes>
+    </>
   );
 }
 
-export default App
+export default App;

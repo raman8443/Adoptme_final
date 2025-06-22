@@ -1,23 +1,7 @@
-import Header from "../components/Header";
+import React from "react";
+
 const ComoAdoptar = () => {
-  return (
-      <>
-   <Header></Header>
-   <h1>estoy aqui en Como Adoptar</h1>
-  
-  </>
-  )
-}
+  return <></>;
+};
 
-export default ComoAdoptar
-
-
-
-
-
-
-
-
-
-
-
+export default ComoAdoptar;
