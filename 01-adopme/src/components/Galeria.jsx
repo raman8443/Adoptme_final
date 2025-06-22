@@ -1,4 +1,4 @@
-import "./Galeria.css"
+import "./Galeria.css";
 const Mascotas = [
   {
     id: 1,
@@ -9,49 +9,47 @@ const Mascotas = [
   {
     id: 2,
     name: "tacto",
-     size: "Grande",
+    size: "Grande",
     img: "",
   },
   {
     id: 3,
     name: "olfato",
-     size: "Grande",
+    size: "Grande",
     img: "",
   },
-   {
-   id: 4,
-   name: "olfato",
-    size: "Grande",
-   img: "",
- },
   {
-   id: 5,
-   name: "olfato",
+    id: 4,
+    name: "olfato",
     size: "Grande",
-   img: "",
- },
+    img: "",
+  },
   {
-   id: 5,
-   name: "olfato",
+    id: 5,
+    name: "olfato",
     size: "Grande",
-   img: "",
- },
+    img: "",
+  },
+  {
+    id: 5,
+    name: "olfato",
+    size: "Grande",
+    img: "",
+  },
 ];
-const HTMLMascotas = Mascotas.map(mascota => {
+const HTMLMascotas = Mascotas.map((mascota) => {
   return (
     <div key={mascota.id} className="fotos">
-
-      <h2>{mascota.name}</h2>
+      <dir className = "fotosinterno">
+        <h2>{mascota.name}</h2>
         <h2>{mascota.size}</h2>
-     <img src={mascota.img} alt="" />
+        <img src={mascota.img} alt="" />
+      </dir>
     </div>
   );
 });
 const Galeria = () => {
-  return (
-  <div>
-    {HTMLMascotas}
-    </div>)
+  return <div>{HTMLMascotas}</div>;
 };
 
 export default Galeria;
