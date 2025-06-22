@@ -1,0 +1,43 @@
+.CANTIDAD {
+    font-size: 30PX;
+    text-align: center;
+     margin: 10PX;
+     background: linear-gradient(#d6d2c4, #FEFEFE);
+     cursor: pointer;  
+     width: 90%;
+     height: 300px;
+     padding: 10px;
+     border-radius: 5px;
+     margin-left: 35PX;
+     transition: 400ms;
+     box-shadow: 10px 10px 30px rgb(0, 0, 0);
+
+}
+.HISTORIA {
+    font-size: 30PX;
+    text-align: center;
+    margin: 20PX;
+    background: linear-gradient(#d6d2c4, #FEFEFE);
+    cursor: pointer;  
+    width: 90%;
+    height: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 35px;
+    transition: 400ms;
+    box-shadow: 10px 10px 30px rgb(0, 0, 0);
+}
+.CONDICIONES{
+    font-size: 30PX;
+    text-align: center;
+    margin: 20PX;
+    background: linear-gradient(#d6d2c4, #FEFEFE);
+    cursor: pointer;  
+    width: 90%;
+    height: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 35px;
+    transition: 400ms;
+    box-shadow: 10px 10px 30px rgb(0, 0, 0);
+}
