@@ -5,6 +5,7 @@ import Mision from "./pages/Mision";
 import ComoAdoptar from "./pages/ComoAdoptar";
 import DarAdopcion from "./pages/DarAdopcion";
 import Header from "./components/Header";
+import PetDetailPage from "./pages/PetDetail";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/Mision" element={<Mision />} />
         <Route path="/ComoAdoptar" element={<ComoAdoptar />} />
         <Route path="/DarAdopcion" element={<DarAdopcion />} />
+        <Route path="/mascota/:id" element={<PetDetailPage />} />
       </Routes>
     </>
   );

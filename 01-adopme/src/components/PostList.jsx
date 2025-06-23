@@ -1,6 +1,7 @@
 // src/components/PostList.jsx
 import React, { useEffect, useState } from "react";
 import { getPosts } from "../api/postApi";
+import { NavLink } from "react-router-dom";
 
 const PostList = () => {
   const [posts, setPosts] = useState([]);
@@ -47,12 +48,12 @@ const PostList = () => {
           </div>
 
           <div className="px-4 pb-4 pt-0 mt-2">
-            <button
-              className="rounded-md bg-slate-800 py-2 px-4 text-sm text-white transition-all shadow-md hover:bg-slate-700"
-              type="button"
+            <NavLink
+              to={`/mascota/${pet.id}`}
+              className="inline-block text-center rounded-md bg-slate-800 py-2 px-4 text-sm text-white transition-all shadow-md hover:bg-slate-700"
             >
               Ver más
-            </button>
+            </NavLink>
           </div>
         </div>
       ))}
