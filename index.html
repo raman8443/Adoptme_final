@@ -1,13 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/adoptme-logo-2.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adoptme</title>
+    <title>AdoptMe</title>
   </head>
-  <body>
-    <div id="root"></div>
+  <body
+    class="relative bg-[url('background.png')] bg-no-repeat bg-cover bg-center bg-fixed"
+  >
+    <!-- Capa blanca con opacidad encima -->
+    <div class="absolute inset-0 bg-white/65"></div>
+
+    <!-- Tu app React -->
+    <div id="root" class="relative z-0"></div>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -15,7 +15,34 @@ const PostList = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <p className="text-center mt-10">Cargando mascotas...</p>;
+  if (loading) {
+    return (
+      <div className="flex flex-wrap justify-center gap-6 p-4">
+        {Array.from({ length: 2 }).map((_, idx) => (
+          <div
+            key={idx}
+            className="animate-pulse flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg w-80"
+          >
+            <div className="relative h-56 m-2.5 overflow-hidden rounded-md bg-slate-200"></div>
+
+            <div className="p-4 space-y-2">
+              <div className="h-6 bg-slate-300 rounded w-3/4"></div>
+              <div className="space-y-1">
+                <div className="h-4 bg-slate-200 rounded w-full"></div>
+                <div className="h-4 bg-slate-200 rounded w-5/6"></div>
+                <div className="h-4 bg-slate-200 rounded w-4/6"></div>
+                <div className="h-4 bg-slate-200 rounded w-3/4"></div>
+              </div>
+            </div>
+
+            <div className="px-4 pb-4">
+              <div className="h-9 bg-slate-300 rounded w-full"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
   if (error)
     return <p className="text-center mt-10 text-red-600">Error: {error}</p>;
 

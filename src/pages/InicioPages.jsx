@@ -1,20 +1,28 @@
-import Galeria from "../components/Galeria";
 import "../components/InicioPages.css";
 import PostList from "../components/PostList";
 
 const InicioPages = () => {
   return (
     <>
-      <section class="saludo  saludo-inicio">
-        <div class="contenedor">
-          <h1 class="titulo-principal"> </h1>
+      {/*
+      <section className="">
+        <div className="contenedor">
           <img src="/public/adoptme.png" className="logo" alt="" />
         </div>
       </section>
-
-      <section class="banner" id="banner">
-        <div class="contenido1-seccion">
-          <h2 class="titulo-seccion">Estas Buscando Tu Mascota Ideal?</h2>
+      */}
+      <section
+        id="banner"
+        className="text-center text-white py-52 md:py-60 lg:py-72 bg-fixed bg-[45%] bg-cover relative overflow-hidden"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/vision.jpg')",
+        }}
+      >
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#f5deb3]">
+            ¿Estás buscando tu mascota ideal?
+          </h2>
         </div>
       </section>
 
@@ -24,8 +32,6 @@ const InicioPages = () => {
         </h2>
         <PostList />
       </section>
-
-      <Galeria></Galeria>
     </>
   );
 };
