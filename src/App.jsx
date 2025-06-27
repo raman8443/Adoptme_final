@@ -41,6 +41,7 @@ function App() {
         <Route path="/" element={<InicioPages />} />
         <Route path="/nuestra-mision" element={<Mision />} />
         <Route path="/como-adoptar" element={<ComoAdoptar />} />
+        <Route path="/mascota/:id" element={<PetDetailPage />} />
 
         {/* Rutas protegidas agrupadas (solo accesibles si el usuario está autenticado) */}
         <Route

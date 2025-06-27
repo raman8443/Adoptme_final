@@ -29,7 +29,7 @@ const LoginPage = () => {
     <div className="flex items-center justify-center min-h-screen">
       <form
         onSubmit={handleSubmit}
-        className="max-w-md mx-auto mt-10 p-6 bg-[#B5BF63] shadow-lg rounded"
+        className="max-w-md p-6 bg-[#B5BF63] shadow-lg rounded mx-2"
       >
         <div className="flex flex-col items-center mb-6">
           <img src="adoptme-logo.webp" alt="AdoptMe Logo" className="w-40" />
