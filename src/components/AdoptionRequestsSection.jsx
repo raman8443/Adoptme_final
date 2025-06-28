@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { getAdoptionRequestsForMyPets } from "../api/adoptionApi";
+import { getAdoptionPreviws } from "../api/adoptionApi";
 
 const AdoptionRequestsSection = ({ token, onBack }) => {
   const [requests, setRequests] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getAdoptionRequestsForMyPets(token)
+    getAdoptionPreviws(token)
       .then(setRequests)
       .catch((err) => setError(err.message));
   }, [token]);
@@ -35,18 +35,18 @@ const AdoptionRequestsSection = ({ token, onBack }) => {
               className="border p-4 rounded shadow bg-gray-50 space-y-1"
             >
               <p>
-                <strong>Mascota:</strong> {req.pet.name} ({req.pet.breed})
+                <strong>Mascota:</strong> {req.pet_name}
               </p>
               <p>
                 <strong>Estado:</strong> {req.status}
               </p>
               <p>
-                <strong>Solicitante:</strong> {req.user.name}{" "}
-                {req.user.lastName} ({req.user.email})
+                <strong>Solicitante:</strong> {req.adopter_name}{" "}
+                {req.adopter_last_name}
               </p>
               {req.message && (
                 <p>
-                  <strong>Mensaje:</strong> {req.message}
+                  <strong>Mensaje:</strong> {req.notes}
                 </p>
               )}
             </div>

@@ -4,7 +4,7 @@ import { getCurrentUser } from "../api/userApi";
 import { Link, useNavigate } from "react-router-dom";
 import MiniCard from "../components/MiniCard";
 import { getPostsByUser } from "../api/postApi";
-import { getAdoptionsByUser } from "../api/adoptionApi";
+import { getAdoptionsByUser, getAdoptionPreviws } from "../api/adoptionApi";
 import AdoptionRequestsSection from "../components/AdoptionRequestsSection";
 
 const ProfilePage = () => {
@@ -32,6 +32,10 @@ const ProfilePage = () => {
 
     getAdoptionsByUser(token)
       .then(setAdoptedPets)
+      .catch((err) => setError(err.message));
+
+    getAdoptionPreviws(token)
+      .then(setAdoptionRequests)
       .catch((err) => setError(err.message));
   }, [token]);
 
