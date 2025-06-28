@@ -4,8 +4,9 @@ import { getCurrentUser } from "../api/userApi";
 import { Link, useNavigate } from "react-router-dom";
 import MiniCard from "../components/MiniCard";
 import { getPostsByUser } from "../api/postApi";
-import { getAdoptionsByUser, getAdoptionPreviws } from "../api/adoptionApi";
+import { getAdoptionsByUser, getAdoptionPreviews } from "../api/adoptionApi";
 import AdoptionRequestsSection from "../components/AdoptionRequestsSection";
+import NewPetForm from "../components/NewPetForm";
 
 const ProfilePage = () => {
   const { token } = useAuth();
@@ -15,6 +16,7 @@ const ProfilePage = () => {
   const [adoptedPets, setAdoptedPets] = useState([]);
   const [adoptionRequests, setAdoptionRequests] = useState([]);
   const [showAdoptionRequests, setShowAdoptionRequests] = useState(false);
+  const [showNewPetForm, setShowNewPetForm] = useState(false);
   /*const [favoritePets, setFavoritePets] = useState([]);*/
 
   const navigate = useNavigate();
@@ -34,10 +36,15 @@ const ProfilePage = () => {
       .then(setAdoptedPets)
       .catch((err) => setError(err.message));
 
-    getAdoptionPreviws(token)
+    getAdoptionPreviews(token)
       .then(setAdoptionRequests)
       .catch((err) => setError(err.message));
   }, [token]);
+
+  const handleBackToProfile = () => {
+    setShowAdoptionRequests(false);
+    setShowNewPetForm(false);
+  };
 
   if (error)
     return <p className="text-red-500 text-center mt-10">Error: {error}</p>;
@@ -45,9 +52,9 @@ const ProfilePage = () => {
 
   return (
     <div className="flex justify-center min-h-screen p-4">
-      <div className="mt-32 max-w-[1100px] w-full md:w-[1100px] grid grid-cols-1 grid-rows-3 md:grid-cols-[2fr_5fr] md:grid-rows-[2fr_2fr_2fr] gap-2">
-        <div className="row-span-2 bg-transparent rounded">
-          <div className="bg-white w-full shadow p-6 rounded">
+      <div className="mt-32 max-w-[1100px] w-full md:w-[1100px] flex flex-col md:flex-row">
+        <div className="bg-white h-fit rounded w-full md:w-[40%] md:mr-2 mb-3 md:mb-0">
+          <div className="w-full shadow p-6 rounded">
             <img
               src={user.avatar}
               alt={user.name}
@@ -73,13 +80,13 @@ const ProfilePage = () => {
                 onClick={() => navigate("/dar-adopcion")}
                 className="w-full bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200"
               >
-                Dar en adopción
+                Buscar mascota
               </button>
               <button
-                onClick={() => navigate("/dar-adopcion")}
+                onClick={() => setShowNewPetForm(true)}
                 className="w-full bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200"
               >
-                Buscar mascota
+                Dar en adopción
               </button>
               {adoptionRequests.length > 0 && (
                 <button
@@ -92,17 +99,16 @@ const ProfilePage = () => {
             </div>
           </div>
         </div>
+
         {/* Render adoption requests or pet sections */}
         {showAdoptionRequests ? (
-          <AdoptionRequestsSection
-            token={token}
-            onBack={() => setShowAdoptionRequests(false)}
-          />
+          <AdoptionRequestsSection token={token} onBack={handleBackToProfile} />
+        ) : showNewPetForm ? (
+          <NewPetForm token={token} onBack={handleBackToProfile} />
         ) : (
-          // Zona para ver mascotas
-          <div>
+          <div className="w-full flex-row">
             {ownPets.length > 0 && (
-              <div className="col-span-1 bg-white shadow p-6 rounded">
+              <div className=" bg-white shadow p-6 rounded">
                 <h2 className="text-2xl font-semibold mb-2">
                   Mascotas dadas en adopción
                 </h2>
@@ -113,20 +119,18 @@ const ProfilePage = () => {
                 </div>
               </div>
             )}
-
             {adoptedPets.length > 0 && (
-              <div className="col-span-1 bg-white shadow p-6 rounded">
+              <div className=" bg-white shadow p-6 rounded mt-4">
                 <h2 className="text-2xl font-semibold mb-2">
                   Mascotas adoptadas o en proceso
                 </h2>
-                <div className="grid gap-4 md:grid-cols-2">
+                <div>
                   {adoptedPets.map((pet) => (
                     <MiniCard key={pet.id} pet={pet.pet} />
                   ))}
                 </div>
               </div>
             )}
-
             {/*
           {favoritePets.length > 0 && (
             <div className="col-span-1 md:col-start-2 bg-white shadow p-6 rounded">

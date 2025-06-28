@@ -63,7 +63,7 @@ const PostList = () => {
 
           <div className="p-4">
             <h6 className="mb-2 text-slate-800 text-xl font-semibold">
-              {pet.name} ({pet.specie})
+              {pet.name} ({pet.gender})
             </h6>
             <p className="text-slate-600 leading-normal font-light text-sm">
               <strong>Edad:</strong> {pet.age} año{pet.age !== 1 ? "s" : ""}{" "}

@@ -10,12 +10,26 @@ export const getAdoptionsByUser = async (token) => {
   return response.json();
 };
 
-export const getAdoptionPreviws = async (token) => {
+export const getAdoptionPreviews = async (token) => {
   const response = await fetch(`${API_BASE_URL}/adoptions/previews`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
+  if (!response.ok)
+    throw new Error("Error al obtener la previsualización de adopciones");
+  return response.json();
+};
+
+export const getAdoptionDetail = async (token, adoptionId) => {
+  const response = await fetch(
+    `${API_BASE_URL}/adoptions/detail/${adoptionId}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
   if (!response.ok)
     throw new Error("Error al obtener la previsualización de adopciones");
   return response.json();
