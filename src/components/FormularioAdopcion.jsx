@@ -15,7 +15,7 @@ const FormularioAdopcion = () => {
 
       {/* Imagen */}
       <img
-        src="/mascotas-felices.jpg"
+        src="/public/vision.jpg"
         alt="Mascotas en adopción"
         className="w-full rounded-lg mb-6"
       />

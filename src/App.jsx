@@ -44,7 +44,7 @@ function App() {
         <Route path="/" element={<InicioPages />} />
         <Route path="/nuestra-mision" element={<Mision />} />
         <Route path="/como-adoptar" element={<ComoAdoptar />} />
-        <Route path="/como-adoptar/FormuarioAdopcion" element={<FormularioAdopcion />} />
+        <Route path="/formulario-adopcion" element={<FormularioAdopcion />} />
         <Route path="/mascota/:id" element={<PetDetailPage />} />
 
 
