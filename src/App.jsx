@@ -13,6 +13,9 @@ import DarAdopcion from "./pages/DarAdopcion";
 import Header from "./components/Header";
 import PetDetailPage from "./pages/PetDetail";
 import ProfilePage from "./pages/ProfilePage";
+import Footer from "./components/Footer";
+import FormularioAdopcion from "./components/FormularioAdopcion";
+
 
 function App() {
   return (
@@ -41,7 +44,9 @@ function App() {
         <Route path="/" element={<InicioPages />} />
         <Route path="/nuestra-mision" element={<Mision />} />
         <Route path="/como-adoptar" element={<ComoAdoptar />} />
+        <Route path="/como-adoptar/FormuarioAdopcion" element={<FormularioAdopcion />} />
         <Route path="/mascota/:id" element={<PetDetailPage />} />
+
 
         {/* Rutas protegidas agrupadas (solo accesibles si el usuario está autenticado) */}
         <Route
@@ -56,6 +61,9 @@ function App() {
           <Route path="perfil" element={<ProfilePage />} />
         </Route>
       </Routes>
+
+      <Footer />
+
     </>
   );
 }
