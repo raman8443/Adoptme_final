@@ -3,18 +3,31 @@ import "../components/QuienesSomos.css";
 const QuienesSomos = () => {
   return (
     <div className="quienes-container max-w-6xl mx-auto px-4 py-12 mt-10">
+
       <div className="banner-vibrante mb-10">
          Juntos construimos un mundo mejor para nuestras mascotas
-         <img src="/public/banner1.png" alt="" />
+         <img src="/public/banner1.png" alt="" />        
       </div>
 
-      <h2 className="text-4xl font-bold text-center text-[#a77f1a] mb-6 animate-fade-up mt-20">
-        Quiénes Somos
-      </h2>
-      <p className="text-center max-w-3xl mx-auto mb-12 text-lg animate-fade-up animation-delay-200">
-        Somos un proyecto dedicado a rescatar, cuidar y encontrar un hogar responsable para animales en situación de calle.
-        Más de 8 años construyendo una comunidad solidaria junto a voluntarios y amantes de los animales.
-      </p>
+      {/* Sección con imagen de fondo centrada y texto encima */}
+      <section 
+        className="relative flex items-center justify-center min-h-[60vh] mb-16 rounded-xl overflow-hidden"
+      >
+        <img 
+          src="/public/vision.jpg" 
+          alt="Quiénes Somos" 
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+        />
+        <div className="relative text-center max-w-3xl px-4 py-8 bg-white/30 backdrop-blur-md rounded-xl">
+          <h2 className="text-4xl font-bold text-[#a77f1a] mb-6 animate-fade-up">
+            Quiénes Somos
+          </h2>
+          <p className="text-lg text-black animate-fade-up animation-delay-200">
+            Somos un proyecto dedicado a rescatar, cuidar y encontrar un hogar responsable para animales en situación de calle. 
+            Más de 8 años construyendo una comunidad solidaria junto a voluntarios y amantes de los animales.
+          </p>
+        </div>
+      </section>
 
       <div className="relative flex flex-col md:flex-row items-center justify-between mb-10 gap-8">
         <div className="glass-box p-6 animate-fade-up">
@@ -62,6 +75,65 @@ const QuienesSomos = () => {
 };
 
 export default QuienesSomos;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
