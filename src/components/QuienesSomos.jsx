@@ -38,8 +38,8 @@ const QuienesSomos = () => {
           </p>
         </div>
         <div className="floating-img-container flex gap-6">
-          <img src="/public/bulldog frances niño.jpg" alt="Mascota feliz" className="floating-img"/>
-          <img src="/public/perrito durmiendo.jpeg" alt="Mascota adoptada" className="floating-img floating-delay"/>
+          <img src="/public/somos.jpeg" alt="Mascota feliz" className="floating-img"/>
+          <img src="/public/somos2.jpeg" alt="Mascota adoptada" className="floating-img floating-delay"/>
         </div>
       </div>
 
