@@ -43,7 +43,7 @@ const Header = () => {
             <button
               onClick={() => navigate("/login")}
               className="
-                bg-gradient-to-tr from-green-300 via-green-500 to-green-700 
+                bg-gradient-to-tr from-[#22231e] via-[#b09b66] to-[#22231e] 
                 text-white font-semibold px-5 py-2 rounded-full text-sm 
                 shadow-[inset_0_-4px_8px_rgba(255,255,255,0.3),0_8px_20px_rgba(0,0,0,0.4)] 
                 hover:scale-105 hover:shadow-[inset_0_-2px_6px_rgba(255,255,255,0.5),0_10px_25px_rgba(0,0,0,0.5)] 
@@ -83,7 +83,7 @@ const Header = () => {
                     <li>
                       <button
                         onClick={handleLogout}
-                        className="w-full text-left px-4 py-2 text-sm text-red-300 hover:bg-green-700"
+                        className="w-full text-left px-4 py-2 text-sm text-red-300 hover:bg-[#b09b66]"
                       >
                         Cerrar sesión
                       </button>
