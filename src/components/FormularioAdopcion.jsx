@@ -8,7 +8,7 @@ const FormularioAdopcion = () => {
       {/* Botón cerrar */}
       <button
         onClick={() => navigate("/como-adoptar")}
-        className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl"
+        className="absolute top-4 right-2 text-red-800 hover:text-gray-600 text-xl cursor-pointer"
       >
         &times;
       </button>
