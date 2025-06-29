@@ -20,7 +20,7 @@ const InstruccionesAdopcion = () => {
             <p>
               Para garantizar una adopción responsable, pedimos:
               <ul className="list-disc list-inside mt-2">
-                <li>Ser mayor de edad y contar con Docuemento vigente.</li>
+                <li>Ser mayor de edad y contar con Documento vigente.</li>
                 <li>Firmar un compromiso de tenencia responsable.</li>
                 <li>Permitir visitas de seguimiento si es necesario.</li>
               </ul>
