@@ -1,0 +1,96 @@
+.quienes-container {
+  position: relative;
+}
+
+.glass-box {
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.glass-box:hover {
+  transform: translateY(-5px);
+}
+
+/* Imágenes flotantes */
+
+.floating-img {
+  width: 200px;
+  border-radius: 1.5rem;
+  background: rgba(255, 215, 0, 0.15); /* sutil dorado transparente */
+  box-shadow: 0 8px 20px rgba(218, 165, 32, 0.3); /* dorado suave */
+  animation: float 4s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-img:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(218, 165, 32, 0.5);
+}
+
+.floating-delay {
+  animation-delay: 2s;
+}
+
+.banner-vibrante {
+  background: rgba(218, 165, 32, 0.15); /* dorado translúcido */
+  border: 2px solid rgba(218, 165, 32, 0.4);
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  text-align: center;
+  color: #a77f1a;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
+  animation: pulseVibrate 3s ease-in-out infinite;
+}
+
+@keyframes pulseVibrate {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(218, 165, 32, 0.5);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Collage patrocinantes */
+.collage-img {
+  width: 120px;
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+  transition: transform 0.3s ease;
+}
+.collage-img:hover {
+  transform: scale(1.1);
+}
+
+/* Animaciones fade */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeUp 0.8s ease forwards;
+}
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-600 { animation-delay: 0.6s; }

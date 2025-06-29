@@ -7,7 +7,7 @@ const FormularioAdopcion = () => {
     <div className="max-w-md mx-auto my-12 p-6 bg-white rounded-2xl shadow-lg relative">
       {/* Botón cerrar */}
       <button
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/como-adoptar")}
         className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl"
       >
         &times;

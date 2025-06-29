@@ -1,18 +1,68 @@
-import "../components/Mision.css";
+import React from 'react'
+import QuienesSomos from '../components/QuienesSomos'
 
 const Mision = () => {
   return (
-    <>
-      <img src="/public/adoptme.png" className="logo" alt="" />
-      <section className="info">
-        <div className="CANTIDAD">CANTIDAD DE ADOPCIONES</div>
-        <div className="HISTORIA">NUESTRA HISTORIA</div>
-        <div className="CONDICIONES">
-          CONDICIONES DE ENTREGA DE LOS ANIMALES
-        </div>
-      </section>
-    </>
-  );
-};
+    <div>
+      <QuienesSomos />
+    </div>
+  )
+}
 
-export default Mision;
+export default Mision
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
