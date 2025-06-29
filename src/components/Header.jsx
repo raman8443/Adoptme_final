@@ -17,9 +17,11 @@ const Header = () => {
 
   return (
     <nav
-      className="fixed top-0 left-0 w-full z-50 
-        bg-gradient-to-r from-[#a8af5e] via-[#b1b348] to-[#b1b348] 
-        border-b border-green-900 shadow-lg"
+      className="fixed top-0 left-0 w-full z-50
+        bg-gradient-to-r from-[#a8af5e]/30 via-[#b1b348]/30 to-[#b1b348]/30
+        backdrop-blur-md
+        border-b border-green-300/30
+        shadow-lg"
     >
       <div className="max-w-screen-xl mx-auto px-4 py-2 flex items-center justify-between">
         {/* Logo */}
@@ -31,10 +33,31 @@ const Header = () => {
         </Link>
 
         {/* Links centrados - ocultos en mobile */}
-        <ul className="hidden md:flex gap-8 text-white font-medium">
-          <li><Link to="/">Inicio</Link></li>
-          <li><Link to="/nuestra-mision">Nuestra Misión</Link></li>
-          <li><Link to="/como-adoptar">Cómo Adoptar</Link></li>
+        <ul className="hidden md:flex gap-8 text-black font-medium">
+          <li>
+            <Link 
+              to="/" 
+              className="hover:text-green-700 transition-colors duration-200"
+            >
+              Inicio
+            </Link>
+          </li>
+          <li>
+            <Link 
+              to="/nuestra-mision" 
+              className="hover:text-green-700 transition-colors duration-200"
+            >
+              Nuestra Misión
+            </Link>
+          </li>
+          <li>
+            <Link 
+              to="/como-adoptar" 
+              className="hover:text-green-700 transition-colors duration-200"
+            >
+              Cómo Adoptar
+            </Link>
+          </li>
         </ul>
 
         {/* Login o avatar */}
@@ -43,11 +66,12 @@ const Header = () => {
             <button
               onClick={() => navigate("/login")}
               className="
-                bg-gradient-to-tr from-[#22231e] via-[#b09b66] to-[#22231e] 
-                text-white font-semibold px-5 py-2 rounded-full text-sm 
-                shadow-[inset_0_-4px_8px_rgba(255,255,255,0.3),0_8px_20px_rgba(0,0,0,0.4)] 
-                hover:scale-105 hover:shadow-[inset_0_-2px_6px_rgba(255,255,255,0.5),0_10px_25px_rgba(0,0,0,0.5)] 
-                transition-all duration-300 ease-in-out"
+                bg-gradient-to-tr from-[#22231e] via-[#b09b66] to-[#22231e]
+                text-white font-semibold px-5 py-2 rounded-full text-sm
+                shadow-[inset_0_-4px_8px_rgba(255,255,255,0.3),0_8px_20px_rgba(0,0,0,0.4)]
+                hover:scale-105 hover:shadow-[inset_0_-2px_6px_rgba(255,255,255,0.5),0_10px_25px_rgba(0,0,0,0.5)]
+                transition-all duration-300 ease-in-out
+              "
             >
               Iniciar sesión
             </button>
@@ -64,8 +88,8 @@ const Header = () => {
                 />
               </button>
               {dropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 shadow-lg rounded-md bg-green-800 z-50">
-                  <div className="px-4 py-3 border-b border-green-600">
+                <div className="absolute right-0 mt-2 w-48 shadow-lg rounded-md bg-green-800/90 backdrop-blur-sm z-50">
+                  <div className="px-4 py-3 border-b border-green-600/50">
                     <p className="text-sm font-medium text-white">
                       {user.name} {user.lastName}
                     </p>
@@ -125,7 +149,7 @@ const Header = () => {
                     setMenuOpen(false);
                     navigate("/login");
                   }}
-                  className="text-left w-full px-2 py-2 bg-green-600 text-white rounded-full hover:bg-green-700"
+                  className="text-left w-full px-2 py-2 bg-green-600/80 text-white rounded-full hover:bg-green-700"
                 >
                   Iniciar sesión
                 </button>
@@ -155,6 +179,429 @@ const Header = () => {
 };
 
 export default Header;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

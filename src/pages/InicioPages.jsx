@@ -5,16 +5,9 @@ import PostList from "../components/PostList";
 const InicioPages = () => {
   return (
     <>
-      {/*
-      <section className="">
-        <div className="contenedor">
-          <img src="/public/adoptme.png" className="logo" alt="" />
-        </div>
-      </section>
-      */}
       <section
         id="banner"
-        className="text-center text-white py-52 md:py-60 lg:py-72 bg-fixed bg-[45%] bg-cover relative overflow-hidden"
+        className="text-center text-white py-52 md:py-60 lg:py-72 bg-fixed bg-[45%] bg-cover relative"
         style={{
           backgroundImage:
             "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/vision.jpg')",
@@ -27,7 +20,7 @@ const InicioPages = () => {
         </div>
       </section>
 
-      <section className="min-h-screen pt-4">
+      <section className="min-h-screen pt-4 bg-white/40 backdrop-blur-md border border-white/30 rounded-xl mx-4 my-6 p-4">
         <h2 className="text-3xl font-bold text-center text-black mb-6">
           Mascotas en adopción
         </h2>
@@ -39,3 +32,33 @@ const InicioPages = () => {
 };
 
 export default InicioPages;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
