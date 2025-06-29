@@ -2,9 +2,10 @@ import "../components/QuienesSomos.css";
 
 const QuienesSomos = () => {
   return (
-    <div className="quienes-container max-w-6xl mx-auto px-4 py-12">
+    <div className="quienes-container max-w-6xl mx-auto px-4 py-12 mt-10">
       <div className="banner-vibrante mb-10">
-        💛 Juntos construimos un mundo mejor para nuestras mascotas
+         Juntos construimos un mundo mejor para nuestras mascotas
+         <img src="/public/banner1.png" alt="" />
       </div>
 
       <h2 className="text-4xl font-bold text-center text-[#a77f1a] mb-6 animate-fade-up mt-20">
@@ -15,11 +16,11 @@ const QuienesSomos = () => {
         Más de 8 años construyendo una comunidad solidaria junto a voluntarios y amantes de los animales.
       </p>
 
-      <div className="relative flex flex-col md:flex-row items-center justify-between mb-16 gap-8">
+      <div className="relative flex flex-col md:flex-row items-center justify-between mb-10 gap-8">
         <div className="glass-box p-6 animate-fade-up">
           <h3 className="text-2xl font-semibold mb-4 text-[#1F6533]">Nuestro proyecto</h3>
           <p>
-            Iniciado en 2015 por Ezequiel y Ramón, dos amigos unidos por el amor hacia los animales.
+            Iniciado en 2015 por Ezequiel y Ramón, dos amigos unidos por el amor hacia los animales.<br/>
             Hoy contamos con más de 50 voluntarios activos y hemos rescatado más de 2000 mascotas.
           </p>
         </div>

@@ -26,12 +26,12 @@
 }
 
 .floating-img:hover {
-  transform: translateY(-10px) scale(1.05);
+  transform: translateY(-5px) scale(0.8);
   box-shadow: 0 12px 24px rgba(218, 165, 32, 0.5);
 }
 
 .floating-delay {
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 
 .banner-vibrante {
