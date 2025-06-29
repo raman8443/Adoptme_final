@@ -1,4 +1,5 @@
 import "../components/InicioPages.css";
+import PetSearch from "../components/PetSearch";
 import PostList from "../components/PostList";
 
 const InicioPages = () => {
@@ -30,6 +31,7 @@ const InicioPages = () => {
         <h2 className="text-3xl font-bold text-center text-black mb-6">
           Mascotas en adopción
         </h2>
+        <PetSearch />
         <PostList />
       </section>
     </>
