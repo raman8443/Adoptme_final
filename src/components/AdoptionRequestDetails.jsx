@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { getAdoptionDetail } from "../api/adoptionApi";
+import {
+  getAdoptionDetail,
+  approveAdoption,
+  denyAdoption,
+} from "../api/adoptionApi";
 
-const AdoptionRequestDetails = ({ adoption, onBack }) => {
+const AdoptionRequestDetails = ({ adoption, onBack, onRefresh }) => {
   const { token } = useAuth();
   const [adoptionDetail, setAdoptionDetail] = useState(null);
   const [error, setError] = useState(null);
@@ -13,7 +17,43 @@ const AdoptionRequestDetails = ({ adoption, onBack }) => {
     getAdoptionDetail(token, adoption.id)
       .then(setAdoptionDetail)
       .catch((err) => setError(err.message));
-  }, [token, adoptionDetail, adoption]);
+  }, [token, adoption]);
+
+  const STATUS_IDS = {
+    PENDIENTE: 1,
+    APROBADO: 2,
+    RECHAZADO: 3,
+  };
+
+  const statusColors = {
+    pendiente: "bg-yellow-400",
+    aprobado: "bg-green-500",
+    rechazado: "bg-red-500",
+  };
+
+  const handleApprove = async () => {
+    try {
+      await approveAdoption(adoption.id, token);
+      alert("✅ Adopción aprobada correctamente");
+      onRefresh();
+      // Podés volver atrás o actualizar la lista
+      onBack();
+    } catch (err) {
+      alert("Error al aprobar la adopción: " + err.message);
+    }
+  };
+
+  const handleDeny = async () => {
+    try {
+      await denyAdoption(adoption.id, token);
+      alert("✅ Adopción rechazada correctamente");
+      onRefresh();
+      // Podés volver atrás o actualizar la lista
+      onBack();
+    } catch (err) {
+      alert("Error al rechazar la adopción: " + err.message);
+    }
+  };
 
   if (error)
     return (
@@ -37,11 +77,13 @@ const AdoptionRequestDetails = ({ adoption, onBack }) => {
       <div className="flex flex-col gap-4">
         <div className="flex flex-col md:flex-row gap-4 items-center">
           {/* Imagen */}
-          <img
-            src={adoptionDetail.adopter.photo_url}
-            alt={adoptionDetail.pet.name}
-            className="w-48 h-48 aspect-square object-cover rounded-full flex-shrink-0"
-          />
+          {adoptionDetail.adopter && (
+            <img
+              src={adoptionDetail.adopter.photo_url}
+              alt={adoptionDetail.pet.name}
+              className="w-48 h-48 aspect-square object-cover rounded-full flex-shrink-0"
+            />
+          )}
 
           {/* Datos + mensaje */}
           <div className="flex flex-col gap-y-2 w-full ">
@@ -102,6 +144,24 @@ const AdoptionRequestDetails = ({ adoption, onBack }) => {
                     <strong>Descripción:</strong>{" "}
                     {adoptionDetail.pet.description}
                   </p>
+                  <div></div>
+                  <div className="flex">
+                    <p>
+                      <strong>Estado: </strong>
+                    </p>
+                    {adoptionDetail.pet.status && (
+                      <p
+                        className={`text-sm text-white px-2 py-0.5 w-fit rounded ml-2 ${
+                          statusColors[
+                            adoptionDetail.pet.status.toLowerCase()
+                          ] || "bg-slate-400"
+                        }`}
+                      >
+                        {adoptionDetail.pet.status}
+                      </p>
+                    )}
+                  </div>
+
                   <div className="flex justify-center mt-4">
                     <button className="bg-[#555aa8] text-white p-2 rounded hover:bg-[#175127] transition duration-200">
                       Ver perfil de la mascota
@@ -117,14 +177,22 @@ const AdoptionRequestDetails = ({ adoption, onBack }) => {
             </div>
           </div>
         </div>
-        <div className="flex gap-3">
-          <button className="w-full bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200">
-            Aceptar adopcion
-          </button>
-          <button className="w-full bg-[#ca293f] text-white py-2 rounded hover:bg-[#711522] transition duration-200">
-            Negar adopcion
-          </button>
-        </div>
+        {adoptionDetail.status_id === STATUS_IDS.PENDIENTE && (
+          <div className="flex gap-3">
+            <button
+              onClick={handleApprove}
+              className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition"
+            >
+              Aceptar
+            </button>
+            <button
+              onClick={handleDeny}
+              className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition"
+            >
+              Negar
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

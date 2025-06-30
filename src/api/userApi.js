@@ -1,12 +1,5 @@
 import { API_BASE_URL } from "./apiConfig";
+import { fetchWithAuth } from "./fetchWithAuth";
 
-export const getCurrentUser = async (token) => {
-  const res = await fetch(`${API_BASE_URL}/users/me`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-
-  if (!res.ok) throw new Error("Error al obtener el usuario");
-  return res.json();
-};
+export const getCurrentUser = (token) =>
+  fetchWithAuth(`${API_BASE_URL}/users/me`, {}, token);
