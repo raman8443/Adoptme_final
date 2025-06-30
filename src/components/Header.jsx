@@ -35,24 +35,32 @@ const Header = () => {
         {/* Links centrados - ocultos en mobile */}
         <ul className="hidden md:flex gap-8 text-black font-medium">
           <li>
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="hover:text-green-700 transition-colors duration-200"
             >
               Inicio
             </Link>
           </li>
           <li>
-            <Link 
-              to="/nuestra-mision" 
+            <Link
+              to="/nuestra-mision"
               className="hover:text-green-700 transition-colors duration-200"
             >
               Nuestra Misión
             </Link>
           </li>
           <li>
-            <Link 
-              to="/como-adoptar" 
+            <Link
+              to="/mascotas"
+              className="hover:text-green-700 transition-colors duration-200"
+            >
+              Mascotas
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/como-adoptar"
               className="hover:text-green-700 transition-colors duration-200"
             >
               Cómo Adoptar
@@ -124,7 +132,12 @@ const Header = () => {
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-white focus:outline-none"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -139,9 +152,21 @@ const Header = () => {
       {menuOpen && (
         <div className="md:hidden px-4 pb-4">
           <ul className="flex flex-col gap-2 text-white font-medium">
-            <li><Link to="/" onClick={() => setMenuOpen(false)}>Inicio</Link></li>
-            <li><Link to="/nuestra-mision" onClick={() => setMenuOpen(false)}>Nuestra Misión</Link></li>
-            <li><Link to="/como-adoptar" onClick={() => setMenuOpen(false)}>Cómo Adoptar</Link></li>
+            <li>
+              <Link to="/" onClick={() => setMenuOpen(false)}>
+                Inicio
+              </Link>
+            </li>
+            <li>
+              <Link to="/nuestra-mision" onClick={() => setMenuOpen(false)}>
+                Nuestra Misión
+              </Link>
+            </li>
+            <li>
+              <Link to="/como-adoptar" onClick={() => setMenuOpen(false)}>
+                Cómo Adoptar
+              </Link>
+            </li>
             {!user ? (
               <li>
                 <button
@@ -157,10 +182,22 @@ const Header = () => {
             ) : (
               <>
                 <li className="flex items-center gap-2 mt-2">
-                  <img src={user.photo_url} alt="avatar" className="w-8 h-8 rounded-full object-cover" />
+                  <img
+                    src={user.photo_url}
+                    alt="avatar"
+                    className="w-8 h-8 rounded-full object-cover"
+                  />
                   <span>{user.name}</span>
                 </li>
-                <li><Link to="/perfil" onClick={() => setMenuOpen(false)} className="block py-2">Mi perfil</Link></li>
+                <li>
+                  <Link
+                    to="/perfil"
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-2"
+                  >
+                    Mi perfil
+                  </Link>
+                </li>
                 <li>
                   <button
                     onClick={handleLogout}
@@ -179,592 +216,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

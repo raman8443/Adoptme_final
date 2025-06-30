@@ -1,9 +1,11 @@
 const CarruselMomentos = () => {
   const momentos = [
-    { id: 1, src: "/public/mascotaAdoptada1.jpeg", alt: "Mascota jugando en el parque" },
-    { id: 2, src: "/public/mascotaAdoptada2.jpeg", alt: "Perrito durmiendo feliz" },
-    { id: 3, src: "/public/mascotaAdoptada3.jpeg", alt: "Gatito con su nuevo dueño" },
+    { id: 1, src: "/public/mascotaAdoptada1.jpg", alt: "Mascota jugando en el parque" },
+    { id: 2, src: "/public/mascotaAdoptada2.jpg", alt: "Perrito durmiendo feliz" },
+    { id: 3, src: "/public/mascotaAdoptada3.jpg", alt: "Gatito con su nuevo dueño" },
     { id: 4, src: "/public/mascotaAdoptada4.jpeg", alt: "Perros corriendo juntos" },
+    { id: 5, src: "/public/mascotaAdoptada5.jpg", alt: "Perros corriendo juntos" },
+    { id: 5, src: "/public/mascotaAdoptada6.jpg", alt: "Perros corriendo juntos" },
   ];
 
   return (
@@ -15,7 +17,7 @@ const CarruselMomentos = () => {
         {momentos.map((momento) => (
           <div
             key={momento.id}
-            className="min-w-[300px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg w-60"
+            className="min-w-[300px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg "
           >
             <img
               src={momento.src}

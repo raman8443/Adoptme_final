@@ -15,6 +15,7 @@ import PetDetailPage from "./pages/PetDetail";
 import ProfilePage from "./pages/ProfilePage";
 import Footer from "./components/Footer";
 import FormularioAdopcion from "./components/FormularioAdopcion";
+import Mascotas from "./pages/Mascotas";
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <Route path="/" element={<InicioPages />} />
         <Route path="/nuestra-mision" element={<Mision />} />
         <Route path="/como-adoptar" element={<ComoAdoptar />} />
+         <Route path="/mascotas" element={<Mascotas />} />
         <Route path="/formulario-adopcion" element={<FormularioAdopcion />} />
         <Route path="/mascota/:id" element={<PetDetailPage />} />
 

@@ -10,7 +10,7 @@ const InstruccionesAdopcion = () => {
           <div className="bg-white rounded-2xl shadow p-6">
             <h3 className="text-2xl font-semibold mb-2">1. Explora nuestras publicaciones</h3>
             <p>
-              Revisa las mascotas disponibles en la sección <strong>“Mascotas en adopción”</strong>. 
+              Revisa las mascotas disponibles en la sección <strong>“Mascotas”</strong>. 
               Puedes ver fotos, leer descripciones y conocer su historia.
             </p>
           </div>
@@ -23,6 +23,9 @@ const InstruccionesAdopcion = () => {
                 <li>Ser mayor de edad y contar con Documento vigente.</li>
                 <li>Firmar un compromiso de tenencia responsable.</li>
                 <li>Permitir visitas de seguimiento si es necesario.</li>
+                <li>Si ya tienes todo Claro, procede a Crear tu Cuenta.</li>
+                 <li>Puedes contactarnos si lo prefieres y nosotros gestionamos tu solicitud.</li>
+                  <li>También puedes comenzar el proceso directamente desde el Sitio.</li>
               </ul>
             </p>
           </div>
@@ -30,7 +33,7 @@ const InstruccionesAdopcion = () => {
           <div className="bg-white rounded-2xl shadow p-6">
             <h3 className="text-2xl font-semibold mb-2">3. Contáctanos</h3>
             <p>
-              Una vez encuentres la mascota ideal, envíanos un mensaje o llena el formulario de adopción
+              Una vez encuentres la mascota ideal, envíanos un mensaje o inicia el proceso desde el enlace
               que encontrarás junto a cada publicación.
             </p>
           </div>
