@@ -195,7 +195,7 @@ const NewPetForm = ({ token, onBack }) => {
           type="submit"
           className="w-full mt-3 bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200"
         >
-          Registrarse
+          Publicar mascota
         </button>
       </form>
     </div>

@@ -39,7 +39,26 @@ const ProfilePage = () => {
     getAdoptionPreviews(token)
       .then(setAdoptionRequests)
       .catch((err) => setError(err.message));
+
+    refetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
+
+  const refetchData = () => {
+    if (!token) return;
+
+    getPostsByUser(token)
+      .then(setOwnPets)
+      .catch((err) => setError(err.message));
+
+    getAdoptionsByUser(token)
+      .then(setAdoptedPets)
+      .catch((err) => setError(err.message));
+
+    getAdoptionPreviews(token)
+      .then(setAdoptionRequests)
+      .catch((err) => setError(err.message));
+  };
 
   const handleBackToProfile = () => {
     setShowAdoptionRequests(false);
@@ -102,9 +121,17 @@ const ProfilePage = () => {
 
         {/* Render adoption requests or pet sections */}
         {showAdoptionRequests ? (
-          <AdoptionRequestsSection token={token} onBack={handleBackToProfile} />
+          <AdoptionRequestsSection
+            token={token}
+            onBack={handleBackToProfile}
+            onRefresh={refetchData}
+          />
         ) : showNewPetForm ? (
-          <NewPetForm token={token} onBack={handleBackToProfile} />
+          <NewPetForm
+            token={token}
+            onBack={handleBackToProfile}
+            onRefresh={refetchData}
+          />
         ) : (
           <div className="w-full flex-row">
             {ownPets.length > 0 && (

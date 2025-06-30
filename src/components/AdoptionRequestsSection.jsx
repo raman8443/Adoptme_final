@@ -8,7 +8,7 @@ const STATUS_IDS = {
   RECHAZADO: 3,
 };
 
-const AdoptionRequestsSection = ({ token, onBack }) => {
+const AdoptionRequestsSection = ({ token, onBack, onRefresh }) => {
   const [requests, setRequests] = useState([]);
   const [error, setError] = useState(null);
   const [filter, setFilter] = useState(null); // null muestra todos
@@ -18,7 +18,17 @@ const AdoptionRequestsSection = ({ token, onBack }) => {
     getAdoptionPreviews(token)
       .then(setRequests)
       .catch((err) => setError(err.message));
+    onRefresh();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
+
+  const refetchData = () => {
+    if (!token) return;
+
+    getAdoptionPreviews(token)
+      .then(setRequests)
+      .catch((err) => setError(err.message));
+  };
 
   if (error)
     return <p className="text-red-500 text-center mt-10">Error: {error}</p>;
@@ -46,7 +56,14 @@ const AdoptionRequestsSection = ({ token, onBack }) => {
   return selectedRequest ? (
     <AdoptionRequestDetails
       adoption={selectedRequest}
-      onBack={() => setSelectedRequest(null)}
+      onBack={() => {
+        setSelectedRequest(null);
+        refetchData(); // <-- Actualiza la lista al volver atrás
+      }}
+      onRefresh={() => {
+        refetchData(); // <-- Actualiza la lista local
+        onRefresh(); // <-- Actualiza el padre
+      }} // <--- este es el que viene de ProfilePage
     />
   ) : (
     <div className="bg-white shadow p-6 rounded w-full">
