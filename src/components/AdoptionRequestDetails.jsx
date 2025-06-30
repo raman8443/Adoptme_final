@@ -34,41 +34,96 @@ const AdoptionRequestDetails = ({ adoption, onBack }) => {
         </button>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-4">
-        {/* Imagen de la mascota */}
-        <img
-          src={adoptionDetail.pet.photo_url}
-          alt={adoptionDetail.pet.name}
-          className="w-full md:w-1/3 h-64 object-cover rounded"
-        />
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col md:flex-row gap-4 items-center">
+          {/* Imagen */}
+          <img
+            src={adoptionDetail.adopter.photo_url}
+            alt={adoptionDetail.pet.name}
+            className="w-48 h-48 aspect-square object-cover rounded-full flex-shrink-0"
+          />
 
-        {/* Datos */}
-        <div className="flex-1 space-y-2">
-          <h3 className="text-xl font-semibold">{adoptionDetail.pet.name}</h3>
-          <p>
-            <strong>Raza:</strong> {adoptionDetail.pet.breed}
-          </p>
-          <p>
-            <strong>Edad:</strong> {adoptionDetail.pet.age} años
-          </p>
-          <p>
-            <strong>Descripción:</strong> {adoptionDetail.pet.description}
-          </p>
+          {/* Datos + mensaje */}
+          <div className="flex flex-col gap-y-2 w-full ">
+            <div className="flex flex-row gap-y-1">
+              <div className="flex flex-col w-full gap-y-2">
+                <h4 className="text-lg font-semibold">Solicitante</h4>
+                <div className="flex justify-evenly">
+                  <div>
+                    <h5 className="font-semibold text-center">Nombre</h5>
+                    <p>
+                      {adoptionDetail.adopter.name}{" "}
+                      {adoptionDetail.adopter.last_name}
+                    </p>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-center">Teléfono</h5>
+                    <p>{adoptionDetail.adopter.phone_number}</p>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-center">Ubicación</h5>
+                    <p>{adoptionDetail.adopter.location}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <h4 className="mt-4 text-lg font-semibold">Solicitante</h4>
-          <p>
-            {adoptionDetail.adopter.name} {adoptionDetail.adopter.last_name} -{" "}
-            {adoptionDetail.adopter.phone_number}
-          </p>
+            {adoptionDetail.notes && (
+              <div className="flex-1 ">
+                <h5 className="font-semibold mb-2">Mensaje</h5>
+                <div className="bg-gray-300 h-28 p-2 rounded-xl overflow-y-auto break-words">
+                  <p>{adoptionDetail.notes}</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
 
-          <p>
-            <strong>Estado:</strong> {adoptionDetail.status}
-          </p>
-          {adoptionDetail.notes && (
-            <p>
-              <strong>Mensaje:</strong> {adoptionDetail.notes}
-            </p>
-          )}
+        <h2 className="text-xl font-semibold text-center">
+          Buscando adoptar a
+        </h2>
+
+        <div className="flex items-center justify-center">
+          {/* Datos */}
+          <div className="flex justify-center">
+            <div className="flex justify-center">
+              <div className="flex w-full">
+                <div className="flex-1 space-y-2 ml-3">
+                  <h3 className="text-xl font-semibold">
+                    {adoptionDetail.pet.name}
+                  </h3>
+                  <p>
+                    <strong>Raza:</strong> {adoptionDetail.pet.breed}
+                  </p>
+                  <p>
+                    <strong>Edad:</strong> {adoptionDetail.pet.age} años
+                  </p>
+                  <p>
+                    <strong>Descripción:</strong>{" "}
+                    {adoptionDetail.pet.description}
+                  </p>
+                  <div className="flex justify-center mt-4">
+                    <button className="bg-[#555aa8] text-white p-2 rounded hover:bg-[#175127] transition duration-200">
+                      Ver perfil de la mascota
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <img
+                src={adoptionDetail.pet.photo_url}
+                alt={adoptionDetail.pet.name}
+                className="w-full md:w-1/3 h-48 object-cover rounded"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="flex gap-3">
+          <button className="w-full bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200">
+            Aceptar adopcion
+          </button>
+          <button className="w-full bg-[#ca293f] text-white py-2 rounded hover:bg-[#711522] transition duration-200">
+            Negar adopcion
+          </button>
         </div>
       </div>
     </div>
