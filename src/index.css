@@ -11,3 +11,18 @@ body {
   background-image: url("../public/images/background.png");
   background-size: auto;
 }
+
+@layer utilities {
+  .animate-carousel {
+    animation: carousel 30s linear infinite;
+  }
+
+  @keyframes carousel {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}

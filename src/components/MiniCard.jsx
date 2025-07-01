@@ -10,7 +10,7 @@ const MiniCard = ({ pet }) => {
   const bgColor = statusColors[statusKey] || "bg-slate-400";
 
   return (
-    <div className="border rounded shadow p-3 w-[320px]">
+    <div className="border rounded shadow p-3 md:w-[360px]">
       <img
         src={pet.photo_url}
         alt={pet.name}

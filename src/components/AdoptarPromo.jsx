@@ -10,13 +10,14 @@ const AdoptarPromo = () => {
           ¡Animate a Adoptar!
         </h2>
         <p className="text-gray-700 mb-6">
-          Dale una segunda oportunidad a quien más lo necesita. Adopta desde la comodidad de tu hogar.
+          Dale una segunda oportunidad a quien más lo necesita. Adopta desde la
+          comodidad de tu hogar.
         </p>
         <button
-          onClick={() => navigate("/formulario-adopcion")}
+          onClick={() => navigate("/login")}
           className="bg-transparent border-2 border-[#1F6533] text-[#1F6533] px-6 py-3 rounded-full font-medium hover:bg-[#1F6533] hover:text-white transition-colors"
         >
-          Formulario de Adopción
+          Create una cuenta y adoptá
         </button>
       </div>
 

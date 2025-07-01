@@ -19,17 +19,22 @@ const PetDetailPage = () => {
   const isOwner = pet?.user?.user_id && user?.id === pet.user.user_id;
 
   useEffect(() => {
-    if (!id || !token) return;
+    if (!id) return;
 
+    // Siempre cargar la mascota
     getPost(id)
       .then((data) => setPet(data))
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
 
-    checkIfUserRequested(id, token)
-      .then((data) => setHasRequested(data.requested))
-      .catch(() => setHasRequested(false));
+    // Solo verificar si el usuario ya pidió adoptar si está logueado
+    if (token) {
+      checkIfUserRequested(id, token)
+        .then((data) => setHasRequested(data.requested))
+        .catch(() => setHasRequested(false));
+    }
   }, [id, token]);
+
   const statusColors = {
     Adoptado: "bg-blue-500",
     Publicado: "bg-green-500",
@@ -39,7 +44,51 @@ const PetDetailPage = () => {
 
   if (loading) {
     return (
-      <p className="text-center mt-10 text-gray-600">Cargando mascota...</p>
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="max-w-4xl w-full mx-auto mt-16 p-6 bg-white shadow-lg rounded-2xl animate-pulse">
+          <div className="flex flex-col md:flex-row gap-8">
+            {/* Imagen simulada */}
+            <div className="w-full md:w-1/2">
+              <div className="h-80 bg-gray-300 rounded-xl shadow object-cover w-full"></div>
+            </div>
+
+            {/* Contenido derecho */}
+            <div className="w-full md:w-1/2 flex flex-col justify-between space-y-4">
+              {/* Título y estado */}
+              <div className="flex items-center justify-between">
+                <div className="h-8 w-40 bg-gray-300 rounded-md"></div>
+                <div className="h-6 w-24 bg-gray-400 rounded-full"></div>
+              </div>
+
+              {/* Descripción */}
+              <div className="space-y-2">
+                <div className="h-4 bg-gray-200 rounded w-full"></div>
+                <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+                <div className="h-4 bg-gray-200 rounded w-2/3"></div>
+              </div>
+
+              {/* Grilla de datos */}
+              <div className="grid grid-cols-2 gap-4 mt-4">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <div key={i} className="h-4 bg-gray-200 rounded w-3/4"></div>
+                ))}
+              </div>
+
+              {/* Publicado por */}
+              <div className="mt-6 border-t pt-4 space-y-2">
+                <div className="h-5 w-40 bg-gray-300 rounded"></div>
+                <div className="h-4 w-64 bg-gray-200 rounded"></div>
+              </div>
+
+              {/* Botones */}
+              <div className="mt-6 flex flex-wrap gap-4">
+                <div className="h-10 w-28 bg-gray-300 rounded"></div>
+                <div className="h-10 w-44 bg-gray-300 rounded"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 
@@ -115,23 +164,32 @@ const PetDetailPage = () => {
                 >
                   Volver
                 </button>
-                {pet.status === "Publicado" &&
-                  !isOwner &&
-                  (hasRequested ? (
-                    <button
-                      disabled
-                      className="ml-4 bg-gray-300 text-gray-600 px-4 py-2 rounded cursor-not-allowed"
-                    >
-                      Solicitud ya enviada
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => setIsModalOpen(true)}
-                      className="ml-4 bg-[#1F6533] text-white px-4 py-2 rounded hover:bg-[#175127] transition"
-                    >
-                      Postularme a adoptar
-                    </button>
-                  ))}
+                {pet.status === "Publicado" && !isOwner && (
+                  <>
+                    {!token ? (
+                      <button
+                        onClick={() => navigate("/login")}
+                        className="ml-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+                      >
+                        Iniciar sesión para adoptar
+                      </button>
+                    ) : hasRequested ? (
+                      <button
+                        disabled
+                        className="ml-4 bg-gray-300 text-gray-600 px-4 py-2 rounded cursor-not-allowed"
+                      >
+                        Solicitud ya enviada
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => setIsModalOpen(true)}
+                        className="ml-4 bg-[#1F6533] text-white px-4 py-2 rounded hover:bg-[#175127] transition"
+                      >
+                        Postularme a adoptar
+                      </button>
+                    )}
+                  </>
+                )}
               </div>
             </div>
           </div>

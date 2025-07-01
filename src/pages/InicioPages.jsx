@@ -20,11 +20,11 @@ const InicioPages = () => {
         </div>
       </section>
 
-      <section className="min-h-screen pt-4 bg-white/40 backdrop-blur-md border border-white/30 rounded-xl mx-4 my-6 p-4">
-        <h2 className="text-3xl font-bold text-center text-black mb-6">
-          Mascotas en adopción
+      <section className="min-h-screen pt-4  rounded-xl mx-4 my-6 p-4">
+        <h2 className="text-3xl font-bold text-center text-[#124C30] mb-6">
+          LOS RECIÉN LLEGADOS
         </h2>
-        
+
         <PostList />
       </section>
     </>
@@ -32,33 +32,3 @@ const InicioPages = () => {
 };
 
 export default InicioPages;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

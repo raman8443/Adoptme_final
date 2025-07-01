@@ -126,35 +126,37 @@ const AdoptionRequestsSection = ({ token, onBack, onRefresh }) => {
       </div>
 
       {/* Lista de previews */}
-      {filteredRequests.length === 0 ? (
-        <p className="text-gray-600">No hay pedidos de adopción.</p>
-      ) : (
-        <div className="space-y-4">
-          {filteredRequests.map((req) => (
-            <div
-              key={req.id}
-              onClick={() => setSelectedRequest(req)}
-              className="border p-4 rounded shadow bg-gray-50 space-y-1 cursor-pointer hover:bg-gray-100"
-            >
-              <p>
-                <strong>Mascota:</strong> {req.pet_name}
-              </p>
-              <p>
-                <strong>Estado:</strong> {req.status}
-              </p>
-              <p>
-                <strong>Solicitante:</strong> {req.adopter_name}{" "}
-                {req.adopter_last_name}
-              </p>
-              {req.notes && (
+      <div className="h-[700px] bg-gray-300 overflow-y-auto p-2">
+        {filteredRequests.length === 0 ? (
+          <p className="text-gray-600">No hay pedidos de adopción.</p>
+        ) : (
+          <div className="space-y-4">
+            {filteredRequests.map((req) => (
+              <div
+                key={req.id}
+                onClick={() => setSelectedRequest(req)}
+                className="border p-4 rounded shadow bg-gray-50 space-y-1 cursor-pointer hover:bg-gray-100"
+              >
                 <p>
-                  <strong>Mensaje:</strong> {req.notes}
+                  <strong>Mascota:</strong> {req.pet_name}
                 </p>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
+                <p>
+                  <strong>Estado:</strong> {req.status}
+                </p>
+                <p>
+                  <strong>Solicitante:</strong> {req.adopter_name}{" "}
+                  {req.adopter_last_name}
+                </p>
+                {req.notes && (
+                  <p>
+                    <strong>Mensaje:</strong> {req.notes}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

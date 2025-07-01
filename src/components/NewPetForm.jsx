@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import Swal from "sweetalert2";
+import { createPost } from "../api/postApi";
 
-const NewPetForm = ({ token, onBack }) => {
+const NewPetForm = ({ token, onBack, onRefresh }) => {
   const [photo, setPhoto] = useState(null);
 
   const {
@@ -12,34 +14,31 @@ const NewPetForm = ({ token, onBack }) => {
 
   const onSubmit = async (form) => {
     if (!photo) {
-      alert("Por favor, subí una imagen de perfil.");
+      Swal.fire({
+        icon: "warning",
+        title: "Oops...",
+        text: "Por favor, subí una imagen de perfil.",
+      });
       return;
     }
 
-    const formData = new FormData();
-
-    for (const key in form) {
-      formData.append(key, form[key]);
-    }
-
-    formData.append("photo", photo);
-
     try {
-      const res = await fetch(
-        "https://proyecto-adopcion-de-mascotas.onrender.com/api/posts/create",
-        {
-          method: "POST",
-          headers: { Authorization: `Bearer ${token}` },
-          body: formData,
-        }
-      );
-
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message);
-      alert("Mascota publicada correctamente.");
-      onBack(); // Volver al perfil
+      await createPost(form, photo, token);
+      Swal.fire({
+        icon: "success",
+        title: "¡Éxito!",
+        text: "Mascota publicada correctamente.",
+        timer: 2000,
+        showConfirmButton: false,
+      });
+      onRefresh();
+      onBack();
     } catch (err) {
-      alert("Error: " + err.message);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: err.message || "Ocurrió un error inesperado.",
+      });
     }
   };
 

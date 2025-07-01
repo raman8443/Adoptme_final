@@ -96,7 +96,7 @@ const ProfilePage = () => {
             </div>
             <div className="mt-4 space-y-3">
               <button
-                onClick={() => navigate("/dar-adopcion")}
+                onClick={() => navigate("/mascotas")}
                 className="w-full bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200"
               >
                 Buscar mascota
@@ -135,7 +135,7 @@ const ProfilePage = () => {
         ) : (
           <div className="w-full flex-row">
             {ownPets.length > 0 && (
-              <div className=" bg-white shadow p-6 rounded">
+              <div className=" bg-white shadow p-6 rounded max-h-[700px] overflow-y-auto">
                 <h2 className="text-2xl font-semibold mb-2">
                   Mascotas dadas en adopción
                 </h2>
@@ -147,7 +147,7 @@ const ProfilePage = () => {
               </div>
             )}
             {adoptedPets.length > 0 && (
-              <div className=" bg-white shadow p-6 rounded mt-4">
+              <div className=" bg-white shadow p-6 rounded mt-4 max-h-[700px] overflow-y-auto">
                 <h2 className="text-2xl font-semibold mb-2">
                   Mascotas adoptadas o en proceso
                 </h2>
