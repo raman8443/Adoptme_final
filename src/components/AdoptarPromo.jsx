@@ -23,7 +23,7 @@ const AdoptarPromo = () => {
 
       <div className="flex-1">
         <img
-          src="/public/vision.jpg"
+          src="vision.jpg"
           alt="Mascotas felices"
           className="rounded-xl shadow-md w-full"
         />
