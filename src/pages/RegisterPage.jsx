@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { registerUser } from "../api/authApi";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const RegisterPage = () => {
-  const { login } = useAuth();
   const navigate = useNavigate();
   const [avatar, setAvatar] = useState(null);
 
@@ -16,34 +16,37 @@ const RegisterPage = () => {
 
   const onSubmit = async (form) => {
     if (!avatar) {
-      alert("Por favor, subí una imagen de perfil.");
+      Swal.fire({
+        icon: "warning",
+        title: "Imagen requerida",
+        text: "Por favor, subí una imagen de perfil.",
+      });
       return;
     }
 
     const formData = new FormData();
-
     for (const key in form) {
       formData.append(key, form[key]);
     }
-
     formData.append("avatar", avatar);
 
     try {
-      const res = await fetch(
-        "https://proyecto-adopcion-de-mascotas.onrender.com/api/auth/register",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      await registerUser(formData);
 
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message);
-
-      login(data.user, data.token);
-      navigate("/");
+      Swal.fire({
+        icon: "success",
+        title: "¡Registro exitoso!",
+        text: "Tu cuenta fue creada correctamente.",
+        confirmButtonColor: "#1F6533",
+      }).then(() => {
+        navigate("/login");
+      });
     } catch (err) {
-      alert("Error al registrarse: " + err.message);
+      Swal.fire({
+        icon: "error",
+        title: "Error al registrarse",
+        text: err.message || "Ocurrió un problema.",
+      });
     }
   };
 
@@ -171,7 +174,7 @@ const RegisterPage = () => {
               {...register("gender_id", {
                 required: "Este campo es obligatorio",
               })}
-              className="w-full p-2 mb-1 border-slate-300 bg-white focus:ring-[#1F6533] text-gray-900 border rounded focus:outline-none focus:ring-2"
+              className="w-full p-2 mb-1 border-slate-300 bg-white focus:ring-[#1F6533] text-gray-900 border rounded focus:outline-none focus:ring-2 cursor-pointer"
             >
               <option value="">Seleccioná tu género</option>
               <option value="1">Masculino</option>
@@ -202,7 +205,7 @@ const RegisterPage = () => {
 
         <button
           type="submit"
-          className="w-full mt-3 bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200"
+          className="w-full mt-3 bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200 cursor-pointer"
         >
           Registrarse
         </button>

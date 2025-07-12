@@ -1,5 +1,4 @@
 import "../components/InicioPages.css";
-import PetSearch from "../components/PetSearch";
 import PostList from "../components/PostList";
 
 const InicioPages = () => {

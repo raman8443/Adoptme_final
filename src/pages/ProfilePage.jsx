@@ -71,7 +71,7 @@ const ProfilePage = () => {
 
   return (
     <div className="flex justify-center min-h-screen p-4">
-      <div className="mt-32 max-w-[1100px] w-full md:w-[1100px] flex flex-col md:flex-row">
+      <div className=" mt-20 md:mt-32 max-w-[1100px] w-full md:w-[1100px] flex flex-col md:flex-row">
         <div className="bg-white h-fit rounded w-full md:w-[40%] md:mr-2 mb-3 md:mb-0">
           <div className="w-full shadow p-6 rounded">
             <img
@@ -97,20 +97,20 @@ const ProfilePage = () => {
             <div className="mt-4 space-y-3">
               <button
                 onClick={() => navigate("/mascotas")}
-                className="w-full bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200"
+                className="w-full bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200 cursor-pointer"
               >
                 Buscar mascota
               </button>
               <button
                 onClick={() => setShowNewPetForm(true)}
-                className="w-full bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200"
+                className="w-full bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200 cursor-pointer"
               >
                 Dar en adopción
               </button>
               {adoptionRequests.length > 0 && (
                 <button
                   onClick={() => setShowAdoptionRequests(true)}
-                  className="w-full bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200"
+                  className="w-full bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200 cursor-pointer"
                 >
                   Ver pedidos de adopción
                 </button>

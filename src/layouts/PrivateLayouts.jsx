@@ -1,14 +1,14 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 const PrivateLayout = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
 
-  if (!user) return null; // o un loader
+  if (loading) return null;
+  if (!user) return <Navigate to="/login" />;
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Podés agregar un navbar privado acá */}
       <Outlet />
     </div>
   );

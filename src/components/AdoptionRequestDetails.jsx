@@ -36,7 +36,6 @@ const AdoptionRequestDetails = ({ adoption, onBack, onRefresh }) => {
       await approveAdoption(adoption.id, token);
       alert("✅ Adopción aprobada correctamente");
       onRefresh();
-      // Podés volver atrás o actualizar la lista
       onBack();
     } catch (err) {
       alert("Error al aprobar la adopción: " + err.message);
@@ -48,7 +47,6 @@ const AdoptionRequestDetails = ({ adoption, onBack, onRefresh }) => {
       await denyAdoption(adoption.id, token);
       alert("✅ Adopción rechazada correctamente");
       onRefresh();
-      // Podés volver atrás o actualizar la lista
       onBack();
     } catch (err) {
       alert("Error al rechazar la adopción: " + err.message);
@@ -63,137 +61,129 @@ const AdoptionRequestDetails = ({ adoption, onBack, onRefresh }) => {
     return <p className="text-center mt-10 w-full">Cargando perfil...</p>;
 
   return (
-    <div className="bg-white shadow p-6 rounded w-full">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-semibold">Detalle de adopción</h2>
+    <div className="bg-white rounded-xl shadow p-6 md:p-10 w-full mx-auto space-y-12 h-fit">
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
+          Detalle de adopción
+        </h2>
         <button
           onClick={onBack}
-          className="text-sm text-blue-600 underline hover:text-blue-800"
+          className="text-sm md:text-base text-blue-600 hover:underline"
         >
           Volver a los pedidos
         </button>
       </div>
 
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-col md:flex-row gap-4 items-center">
-          {/* Imagen */}
-          {adoptionDetail.adopter && (
+      <div className="grid md:grid-cols-2 gap-12">
+        {/* Solicitante */}
+        <div className="space-y-6">
+          <h3 className="text-lg md:text-2xl font-semibold text-gray-700">
+            Solicitante
+          </h3>
+          <div className="flex items-center gap-6">
             <img
               src={adoptionDetail.adopter.photo_url}
-              alt={adoptionDetail.pet.name}
-              className="w-48 h-48 aspect-square object-cover rounded-full flex-shrink-0"
+              alt="Avatar del solicitante"
+              className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border shadow"
             />
+            <div className="space-y-2 text-md md:text-base text-gray-700">
+              <p>
+                <span className="font-medium">Nombre:</span>{" "}
+                {adoptionDetail.adopter.name} {adoptionDetail.adopter.last_name}
+              </p>
+              <p>
+                <span className="font-medium">Teléfono:</span>{" "}
+                {adoptionDetail.adopter.phone_number}
+              </p>
+              <p>
+                <span className="font-medium">Ubicación:</span>{" "}
+                {adoptionDetail.adopter.location}
+              </p>
+            </div>
+          </div>
+          {adoptionDetail.notes && (
+            <div>
+              <p className="text-sm font-medium text-gray-700 mb-1 text-md md:text-base">
+                Mensaje:
+              </p>
+              <div className="bg-gray-100 p-3 rounded-md text-gray-800 text-md md:text-base whitespace-pre-line">
+                {adoptionDetail.notes}
+              </div>
+            </div>
           )}
-
-          {/* Datos + mensaje */}
-          <div className="flex flex-col gap-y-2 w-full ">
-            <div className="flex flex-row gap-y-1">
-              <div className="flex flex-col w-full gap-y-2">
-                <h4 className="text-lg font-semibold">Solicitante</h4>
-                <div className="flex justify-evenly">
-                  <div>
-                    <h5 className="font-semibold text-center">Nombre</h5>
-                    <p>
-                      {adoptionDetail.adopter.name}{" "}
-                      {adoptionDetail.adopter.last_name}
-                    </p>
-                  </div>
-                  <div>
-                    <h5 className="font-semibold text-center">Teléfono</h5>
-                    <p>{adoptionDetail.adopter.phone_number}</p>
-                  </div>
-                  <div>
-                    <h5 className="font-semibold text-center">Ubicación</h5>
-                    <p>{adoptionDetail.adopter.location}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {adoptionDetail.notes && (
-              <div className="flex-1 ">
-                <h5 className="font-semibold mb-2">Mensaje</h5>
-                <div className="bg-gray-300 h-28 p-2 rounded-xl overflow-y-auto break-words">
-                  <p>{adoptionDetail.notes}</p>
-                </div>
-              </div>
-            )}
-          </div>
         </div>
 
-        <h2 className="text-xl font-semibold text-center">
-          Buscando adoptar a
-        </h2>
-
-        <div className="flex items-center justify-center">
-          {/* Datos */}
-          <div className="flex justify-center">
-            <div className="flex justify-center">
-              <div className="flex w-full">
-                <div className="flex-1 space-y-2 ml-3">
-                  <h3 className="text-xl font-semibold">
-                    {adoptionDetail.pet.name}
-                  </h3>
-                  <p>
-                    <strong>Raza:</strong> {adoptionDetail.pet.breed}
-                  </p>
-                  <p>
-                    <strong>Edad:</strong> {adoptionDetail.pet.age} años
-                  </p>
-                  <p>
-                    <strong>Descripción:</strong>{" "}
-                    {adoptionDetail.pet.description}
-                  </p>
-                  <div></div>
-                  <div className="flex">
-                    <p>
-                      <strong>Estado: </strong>
-                    </p>
-                    {adoptionDetail.pet.status && (
-                      <p
-                        className={`text-sm text-white px-2 py-0.5 w-fit rounded ml-2 ${
-                          statusColors[
-                            adoptionDetail.pet.status.toLowerCase()
-                          ] || "bg-slate-400"
-                        }`}
-                      >
-                        {adoptionDetail.pet.status}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="flex justify-center mt-4">
-                    <button className="bg-[#555aa8] text-white p-2 rounded hover:bg-[#175127] transition duration-200">
-                      Ver perfil de la mascota
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <img
-                src={adoptionDetail.pet.photo_url}
-                alt={adoptionDetail.pet.name}
-                className="w-full md:w-1/3 h-48 object-cover rounded"
-              />
+        {/* Mascota */}
+        <div className="space-y-6">
+          <h3 className="text-lg md:text-2xl font-semibold text-gray-700">
+            Mascota solicitada
+          </h3>
+          <div className="flex items-center gap-6">
+            <img
+              src={adoptionDetail.pet.photo_url}
+              alt={`Foto de ${adoptionDetail.pet.name}`}
+              className="w-30 h-30 md:w-40 md:h-40 rounded-xl object-cover border shadow"
+            />
+            <div className="text-md md:text-base text-gray-700 space-y-2">
+              <p>
+                <span className="font-medium">Nombre:</span>{" "}
+                {adoptionDetail.pet.name}
+              </p>
+              <p>
+                <span className="font-medium">Raza:</span>{" "}
+                {adoptionDetail.pet.breed}
+              </p>
+              <p>
+                <span className="font-medium">Edad:</span>{" "}
+                {adoptionDetail.pet.age} año
+                {adoptionDetail.pet.age !== 1 && "s"}
+              </p>
+              <p>
+                <span className="font-medium">Estado:</span>
+                <span
+                  className={`ml-2 inline-block px-2 py-0.5 bg-opacity-80 text-white rounded-full text-xs md:text-sm ${
+                    statusColors[adoptionDetail.pet.status.toLowerCase()] ||
+                    "bg-gray-400"
+                  }`}
+                >
+                  {adoptionDetail.pet.status}
+                </span>
+              </p>
             </div>
           </div>
-        </div>
-        {adoptionDetail.status_id === STATUS_IDS.PENDIENTE && (
-          <div className="flex gap-3">
-            <button
-              onClick={handleApprove}
-              className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition"
-            >
-              Aceptar
-            </button>
-            <button
-              onClick={handleDeny}
-              className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition"
-            >
-              Negar
-            </button>
+          <div>
+            <p className="text-md font-medium text-gray-700 mb-1 md:text-base">
+              Descripción:
+            </p>
+            <p className="text-md md:text-base text-gray-800">
+              {adoptionDetail.pet.description}
+            </p>
           </div>
-        )}
+          <a
+            href={`/pets/${adoptionDetail.pet.id}`}
+            className="inline-block mt-3 bg-indigo-600 text-white text-sm md:text-base px-4 py-2 rounded hover:bg-indigo-700 transition"
+          >
+            Ver perfil de la mascota
+          </a>
+        </div>
       </div>
+
+      {adoptionDetail.status_id === STATUS_IDS.PENDIENTE && (
+        <div className="flex gap-4 justify-end pt-6 border-t">
+          <button
+            onClick={handleApprove}
+            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition"
+          >
+            Aceptar
+          </button>
+          <button
+            onClick={handleDeny}
+            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition"
+          >
+            Negar
+          </button>
+        </div>
+      )}
     </div>
   );
 };

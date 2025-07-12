@@ -28,7 +28,7 @@ const Header = () => {
         <Link to="/" className="flex items-center gap-2">
           <img src="/adoptme-logo-2.webp" alt="avatar" className="h-12" />
           <span className="text-2xl font-bold text-white">
-            Adopt<span className="text-green-200">Me</span>
+            Adopt<span className="text-green-700">Me</span>
           </span>
         </Link>
 
@@ -78,7 +78,7 @@ const Header = () => {
                 text-white font-semibold px-5 py-2 rounded-full text-sm
                 shadow-[inset_0_-4px_8px_rgba(255,255,255,0.3),0_8px_20px_rgba(0,0,0,0.4)]
                 hover:scale-105 hover:shadow-[inset_0_-2px_6px_rgba(255,255,255,0.5),0_10px_25px_rgba(0,0,0,0.5)]
-                transition-all duration-300 ease-in-out
+                transition-all duration-300 ease-in-out cursor-pointer
               "
             >
               Iniciar sesión
@@ -92,7 +92,7 @@ const Header = () => {
                 <img
                   src={user.photo_url}
                   alt="avatar"
-                  className="w-9 h-9 rounded-full border border-gray-300 object-cover"
+                  className="w-9 h-9 rounded-full border border-gray-300 object-cover cursor-pointer"
                 />
               </button>
               {dropdownOpen && (
@@ -115,7 +115,7 @@ const Header = () => {
                     <li>
                       <button
                         onClick={handleLogout}
-                        className="w-full text-left px-4 py-2 text-sm text-red-300 hover:bg-[#b09b66]"
+                        className="w-full text-left px-4 py-2 text-sm text-red-300 hover:bg-[#b09b66] cursor-pointer"
                       >
                         Cerrar sesión
                       </button>

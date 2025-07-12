@@ -1,6 +1,6 @@
 import React from "react";
-import { Routes } from "react-router-dom";
-import { Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { useAuth } from "./context/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
 import PrivateLayout from "./layouts/PrivateLayouts";
 import PublicRoute from "./components/PublicRoute";
@@ -9,21 +9,22 @@ import RegisterPage from "./pages/RegisterPage";
 import InicioPages from "./pages/InicioPages";
 import Mision from "./pages/Mision";
 import ComoAdoptar from "./pages/ComoAdoptar";
-import DarAdopcion from "./pages/DarAdopcion";
 import Header from "./components/Header";
 import PetDetailPage from "./pages/PetDetail";
 import ProfilePage from "./pages/ProfilePage";
 import Footer from "./components/Footer";
-import FormularioAdopcion from "./components/FormularioAdopcion";
 import Mascotas from "./pages/Mascotas";
 
-
 function App() {
+  const { loading } = useAuth();
+
+  if (loading) return null; // o un spinner si querés
+
   return (
     <>
-      <Header /> {/* Esto se muestra siempre */}
+      <Header />
       <Routes>
-        {/* Rutas públicas (No deja ingresar a paginas una vez logueado)*/}
+        {/* Rutas públicas */}
         <Route
           path="/login"
           element={
@@ -41,16 +42,14 @@ function App() {
           }
         />
 
-        {/* Rutas accesibles para todos */}
+        {/* Rutas públicas para todos */}
         <Route path="/" element={<InicioPages />} />
         <Route path="/nuestra-mision" element={<Mision />} />
         <Route path="/como-adoptar" element={<ComoAdoptar />} />
-         <Route path="/mascotas" element={<Mascotas />} />
-        <Route path="/formulario-adopcion" element={<FormularioAdopcion />} />
+        <Route path="/mascotas" element={<Mascotas />} />
         <Route path="/mascota/:id" element={<PetDetailPage />} />
 
-
-        {/* Rutas protegidas agrupadas (solo accesibles si el usuario está autenticado) */}
+        {/* Rutas privadas */}
         <Route
           path="/"
           element={
@@ -59,13 +58,10 @@ function App() {
             </PrivateRoute>
           }
         >
-          {/* Podés agregar más rutas privadas acá abajo*/}
           <Route path="perfil" element={<ProfilePage />} />
         </Route>
       </Routes>
-
       <Footer />
-
     </>
   );
 }

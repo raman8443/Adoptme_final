@@ -16,10 +16,9 @@ const LoginPage = () => {
     try {
       const { token, user } = await loginUser({ email, password });
 
-      // Guardar usuario y token en contexto + localStorage
       login(user, token);
 
-      navigate("/"); // o redirigir a "/perfil" por ejemplo
+      navigate("/");
     } catch (err) {
       alert("Error al iniciar sesión: " + err.message);
     }
@@ -59,7 +58,7 @@ const LoginPage = () => {
         </span>
         <button
           type="submit"
-          className="w-full mt-3 bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200"
+          className="w-full mt-3 bg-[#1F6533] text-white py-2 rounded hover:bg-[#175127] transition duration-200 cursor-pointer"
         >
           Iniciar sesión
         </button>

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import Swal from "sweetalert2";
 import { createPost } from "../api/postApi";
+import Swal from "sweetalert2";
 
 const NewPetForm = ({ token, onBack, onRefresh }) => {
   const [photo, setPhoto] = useState(null);

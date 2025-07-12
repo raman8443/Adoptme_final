@@ -105,7 +105,7 @@ const PetDetailPage = () => {
   return (
     <>
       <div className="flex justify-center items-center min-h-screen">
-        <div className="max-w-4xl mx-auto mt-16 p-6 bg-white shadow-lg rounded-2xl">
+        <div className="max-w-4xl mx-auto mt-20 mb-10 md:mt-16 md:mb-0 p-6 bg-white shadow-lg rounded-2xl">
           <div className="flex flex-col md:flex-row gap-8">
             <img
               src={pet.photo_url}
@@ -160,7 +160,7 @@ const PetDetailPage = () => {
               <div className="mt-6">
                 <button
                   onClick={() => navigate(-1)}
-                  className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded"
+                  className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded cursor-pointer"
                 >
                   Volver
                 </button>
@@ -169,7 +169,7 @@ const PetDetailPage = () => {
                     {!token ? (
                       <button
                         onClick={() => navigate("/login")}
-                        className="ml-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+                        className="ml-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition cursor-pointer"
                       >
                         Iniciar sesión para adoptar
                       </button>
@@ -183,7 +183,7 @@ const PetDetailPage = () => {
                     ) : (
                       <button
                         onClick={() => setIsModalOpen(true)}
-                        className="ml-4 bg-[#1F6533] text-white px-4 py-2 rounded hover:bg-[#175127] transition"
+                        className="ml-4 bg-[#1F6533] text-white px-4 py-2 rounded hover:bg-[#175127] transition cursor-pointer"
                       >
                         Postularme a adoptar
                       </button>
@@ -234,7 +234,7 @@ const PetDetailPage = () => {
                   }
                 }}
                 disabled={submitting}
-                className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition"
+                className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition cursor-pointer"
               >
                 {submitting ? "Enviando..." : "Enviar solicitud"}
               </button>

@@ -33,7 +33,6 @@ const AdoptionRequestsSection = ({ token, onBack, onRefresh }) => {
   if (error)
     return <p className="text-red-500 text-center mt-10">Error: {error}</p>;
 
-  // Clasificación por estado
   const pending = requests.filter((r) => r.status_id === STATUS_IDS.PENDIENTE);
   const approved = requests.filter((r) => r.status_id === STATUS_IDS.APROBADO);
   const rejected = requests.filter((r) => r.status_id === STATUS_IDS.RECHAZADO);
@@ -58,12 +57,12 @@ const AdoptionRequestsSection = ({ token, onBack, onRefresh }) => {
       adoption={selectedRequest}
       onBack={() => {
         setSelectedRequest(null);
-        refetchData(); // <-- Actualiza la lista al volver atrás
+        refetchData();
       }}
       onRefresh={() => {
-        refetchData(); // <-- Actualiza la lista local
-        onRefresh(); // <-- Actualiza el padre
-      }} // <--- este es el que viene de ProfilePage
+        refetchData();
+        onRefresh();
+      }}
     />
   ) : (
     <div className="bg-white shadow p-6 rounded w-full">
