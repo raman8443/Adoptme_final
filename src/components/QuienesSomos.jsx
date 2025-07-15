@@ -41,7 +41,7 @@ const QuienesSomos = () => {
             de 2000 mascotas.
           </p>
         </div>
-        <div className="floating-img-container flex gap-6">
+        <div className="floating-img-container flex gap-2">
           <img src="somos.jpeg" alt="Mascota feliz" className="floating-img" />
           <img
             src="somos2.jpeg"
