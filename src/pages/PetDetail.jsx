@@ -197,8 +197,8 @@ const PetDetailPage = () => {
         </div>
       </div>
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-lg w-full max-w-lg shadow-lg relative">
+        <div className="fixed inset-0 bg-black/20 backdrop-blur-sm flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg w-full shadow-lg relative max-w-[95%] sm:max-w-lg">
             <button
               onClick={() => setIsModalOpen(false)}
               className="absolute top-2 right-3 text-gray-500 hover:text-gray-800 text-xl"
@@ -216,8 +216,15 @@ const PetDetailPage = () => {
             <div className="mt-4 flex justify-end">
               <button
                 onClick={async () => {
-                  if (!message.trim())
-                    return alert("Por favor, escribí un mensaje.");
+                  if (!message.trim()) {
+                    Swal.fire({
+                      icon: "warning",
+                      title: "Mensaje vacío",
+                      text: "Por favor, escribí un mensaje para enviar tu solicitud.",
+                      confirmButtonColor: "#3085d6",
+                    });
+                    return;
+                  }
                   setSubmitting(true);
                   try {
                     await postAdoptionRequest(
