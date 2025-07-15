@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import {
   getAdoptionDetail,
@@ -159,26 +160,26 @@ const AdoptionRequestDetails = ({ adoption, onBack, onRefresh }) => {
               {adoptionDetail.pet.description}
             </p>
           </div>
-          <a
-            href={`/pets/${adoptionDetail.pet.id}`}
+          <Link
+            to={`/mascota/${adoptionDetail.pet.id}`}
             className="inline-block mt-3 bg-indigo-600 text-white text-sm md:text-base px-4 py-2 rounded hover:bg-indigo-700 transition"
           >
             Ver perfil de la mascota
-          </a>
+          </Link>
         </div>
       </div>
 
       {adoptionDetail.status_id === STATUS_IDS.PENDIENTE && (
-        <div className="flex gap-4 justify-end pt-6 border-t">
+        <div className="flex gap-4 justify-center pt-6 border-t">
           <button
             onClick={handleApprove}
-            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition"
+            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition cursor-pointer"
           >
             Aceptar
           </button>
           <button
             onClick={handleDeny}
-            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition"
+            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition cursor-pointer"
           >
             Negar
           </button>

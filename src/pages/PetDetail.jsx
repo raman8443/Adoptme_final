@@ -4,6 +4,7 @@ import { getPost } from "../api/postApi";
 import { postAdoptionRequest } from "../api/adoptionApi"; // Asegurate de tener esta función
 import { useAuth } from "../context/AuthContext";
 import { checkIfUserRequested } from "../api/adoptionApi";
+import Swal from "sweetalert2";
 
 const PetDetailPage = () => {
   const { id } = useParams();
@@ -223,14 +224,33 @@ const PetDetailPage = () => {
                       { pet_id: pet.id, notes: message },
                       token
                     );
-                    alert("✅ Tu solicitud fue enviada con éxito");
+
+                    Swal.fire({
+                      icon: "success",
+                      title: "Solicitud enviada",
+                      text: "Tu solicitud fue enviada con éxito.",
+                      toast: true,
+                      position: "top-end",
+                      showConfirmButton: false,
+                      timer: 3000,
+                      timerProgressBar: true,
+                    });
+
                     setIsModalOpen(false);
                     setMessage("");
-                    setHasRequested(true); // <-- actualiza el estado
+                    setHasRequested(true);
+                    // eslint-disable-next-line no-unused-vars
                   } catch (err) {
-                    alert("❌ Error al enviar la solicitud: " + err.message);
-                  } finally {
-                    setSubmitting(false);
+                    Swal.fire({
+                      icon: "error",
+                      title: "Error",
+                      text: "Hubo un problema al enviar tu solicitud.",
+                      toast: true,
+                      position: "top-end",
+                      showConfirmButton: false,
+                      timer: 3000,
+                      timerProgressBar: true,
+                    });
                   }
                 }}
                 disabled={submitting}
